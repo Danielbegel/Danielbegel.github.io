@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <style>
+        /* CSS Variables for easy color changes */
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #333333;
+            --accent-color: #555555;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Gallery Grid Setup */
+        /* Gallery Masonry Setup */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .gallery {
+            column-count: 1; /* Defaults to 1 column for mobile phones */
+            column-gap: 15px;
+        }
+
+        /* Automatically add more columns as the screen gets wider */
+        @media (min-width: 600px) {
+            .gallery { column-count: 2; }
+        }
+        @media (min-width: 900px) {
+            .gallery { column-count: 3; }
+        }
+
+        /* Image Container */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #eeeeee;
+            margin-bottom: 15px; /* Creates vertical space between images */
+            display: inline-block; /* Prevents an image from being sliced in half across columns */
+            width: 100%;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* Tells the browser to use the original 3:2 or 2:3 aspect ratio */
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* Hover Zoom Effect */
+        .gallery-item:hover img {
+            transform: scale(1.04); /* Reduced slightly since taller images zoom more aggressively */
+            cursor: pointer;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            border-top: 1px solid #eaeaea;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Daniel Begel</h1>
+        <p>Totally not vibe coded</p>
+    </header>
+
+
+    
+    <div class="gallery-container">
+        <main class="gallery">
+            <!-- Using Lorem Picsum for placeholder photography -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1759893570511-c399042de087?q=100&ixlib=rb-4.1.0" alt="Santa Cruz (2025)" loading="lazy">
+            </div>              
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 52 million bananas</p>
+    </footer>
+
+</body>
+</html>
