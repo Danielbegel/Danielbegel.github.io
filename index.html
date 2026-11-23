@@ -45,6 +45,7 @@
         }
 
         /* Gallery Grid Setup */
+        /* Gallery Masonry Setup */
         .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -52,31 +53,38 @@
         }
 
         .gallery {
-            display: grid;
-            /* Creates responsive columns: minimum 300px wide, expanding to fill available space */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            column-count: 1; /* Defaults to 1 column for mobile phones */
+            column-gap: 15px;
         }
 
-        /* Image Container for Hover Effects */
+        /* Automatically add more columns as the screen gets wider */
+        @media (min-width: 600px) {
+            .gallery { column-count: 2; }
+        }
+        @media (min-width: 900px) {
+            .gallery { column-count: 3; }
+        }
+
+        /* Image Container */
         .gallery-item {
             overflow: hidden;
             border-radius: 4px;
             background-color: #eeeeee;
-            aspect-ratio: 1 / 1; /* Keeps images perfectly square */
+            margin-bottom: 15px; /* Creates vertical space between images */
+            display: inline-block; /* Prevents an image from being sliced in half across columns */
+            width: 100%;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image fills the square without distorting */
-            transition: transform 0.4s ease;
+            height: auto; /* Tells the browser to use the original 3:2 or 2:3 aspect ratio */
             display: block;
+            transition: transform 0.4s ease;
         }
 
         /* Hover Zoom Effect */
         .gallery-item:hover img {
-            transform: scale(1.08);
+            transform: scale(1.04); /* Reduced slightly since taller images zoom more aggressively */
             cursor: pointer;
         }
 
